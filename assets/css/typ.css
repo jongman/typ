@@ -1,0 +1,20 @@
+body {
+	font-size: 16px;
+	line-height: 150%;
+	font-family: NanumGothic, sans-serif;
+	margin-top: 16px;
+}
+
+li {
+	line-height: 160%;
+}
+
+h1 {
+	margin-bottom: 24px;
+	font-size: 40px;
+}
+
+h2, h3, h4 {
+	margin-top: 16px;
+	margin-bottom: 8px;
+}

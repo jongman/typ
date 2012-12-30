@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+	<h1>{{ title }}</h1>
+	<p>
+		[<a href="index.html">처음으로</a>]
+		[<a href="chronological.html">모든 글 보기</a>]
+		[같은 카테고리의 글 보기: {% for category in categories -%}
+		{%- if not loop.first %}, {% endif -%}
+		<a href="{{ category }}.html">{{ category }}</a>
+		{%- endfor %}]
+	</p>
+	<hr/>
+	{{ markdown }}
+	<hr/>
+	<p>
+		[<a href="index.html">처음으로</a>]
+		[<a href="chronological.html">모든 글 보기</a>]
+		[같은 카테고리의 글 보기: {% for category in categories -%}
+		{%- if not loop.first %}, {% endif -%}
+		<a href="{{ category }}.html">{{ category }}</a>
+		{%- endfor %}]
+	</p>
+{% endblock %}
+{% block headtail %}
+{% endblock %}

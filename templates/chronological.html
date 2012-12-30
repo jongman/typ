@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ category_name }}{% endblock %}
+{% block body %}
+	<h1>모든 글 (최근부터)</h1>
+
+	<hr/>
+	<p>
+		<ul>
+			{% for article in articles %}
+				<li><a href="{{ article['html_name'] }}">{{ article['title'] }}</a></li>
+			{% endfor %}
+		</ul>
+	</p>
+
+{% endblock %}

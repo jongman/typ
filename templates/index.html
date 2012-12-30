@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} The Yearly Prophet {% endblock %}
+{% block body %}
+	<h1>The Yearly Prophet</h1>
+	<p>
+		이 "블로그"는 써진 순서와 상관 없는 짧은 글들의 모음입니다.
+	</p>
+
+	<hr/>
+
+	<h3>흔히 찾는 것들</h3>
+
+	<ul>
+		{% for article in articles %}
+			{% if article.get('favorite') %}
+			<li><a href="{{ article['html_name'] }}">{{ article['title'] }}</a></li>
+			{% endif %}
+		{% endfor %}
+		<li><a href="http://feeds.feedburner.com/theyearlyprophet/GGGO">RSS</a></li>
+	</ul>
+
+	<hr/>
+
+	<h3>최근 글들 보기</h3>
+
+	<ul>
+		{% for article in articles[:8] %}
+			<li><a href="{{ article['html_name'] }}">{{ article['title'] }}</a></li>
+		{% endfor %}
+	</ul>
+
+	[<a href="chronological.html">전부 보기</a>]
+	<hr/>
+	<h3>태그별로 보기</h3>
+
+	<ul>
+		{% for category in categories %}
+			<li><a href="{{ category }}.html">{{ category }}</a></li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
