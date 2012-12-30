@@ -4,6 +4,7 @@ from markdown import markdown
 from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
+from collections import defaultdict
 import codecs
 
 URL = 'http://theyearlyprophet.com/'
@@ -66,10 +67,10 @@ def generate_chronological_index(articles):
     rendered = template.render(articles=articles)
     codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
-def generate_front_page(categories, articles):
+def generate_front_page(category_indexed, articles):
     dest = path.join(OUTPUT_HOME, 'index.html')
     template = jinja_env.get_template('index.html')
-    rendered = template.render(categories=categories, articles=articles)
+    rendered = template.render(category_indexed=category_indexed, articles=articles)
     codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_rss(articles):
@@ -95,16 +96,16 @@ def generate_indices(articles):
     articles.sort(key=lambda a: a['date'])
     articles = list(reversed(articles))
 
-    categories = set()
-    for article in articles: categories.update(article['categories'])
+    indexed = defaultdict(list)
+    for article in articles: 
+        for category in article['categories']:
+            indexed[category].append(article)
 
-    for category in categories:
-        generate_category_index(category, 
-                                [article for article in articles
-                                 if category in article['categories']])
+    for category, category_articles in indexed.items():
+        generate_category_index(category, category_articles)
 
     generate_chronological_index(articles)
-    generate_front_page(categories, articles)
+    generate_front_page(indexed, articles)
     generate_rss(articles)
 
 def process_articles(article_paths):

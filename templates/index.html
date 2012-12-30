@@ -25,10 +25,14 @@
 	<hr/>
 	<h3>태그별로 보기</h3>
 
-	<ul>
-		{% for category in categories %}
-			<li><a href="{{ category }}.html">{{ category }}</a></li>
-		{% endfor %}
-	</ul>
+	{% for category, category_articles in category_indexed.items() %}
+		<a id="{{ category }}"/>
+		<h4>{{ category }}</h4>
+		<ul>
+			{% for article in category_articles %}
+				<li><a href="{{ article['html_name'] }}">{{ article['title'] }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endfor %}
 
 {% endblock %}

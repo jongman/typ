@@ -14,7 +14,7 @@
 		[<a href="chronological.html">모든 글 보기</a>]
 		[같은 카테고리의 글 보기: {% for category in categories -%}
 		{%- if not loop.first %}, {% endif -%}
-		<a href="{{ category }}.html">{{ category }}</a>
+		<a href="index.html#{{ category }}">{{ category }}</a>
 		{%- endfor %}]
 	</p>
 	<hr/>
@@ -25,7 +25,7 @@
 		[<a href="chronological.html">모든 글 보기</a>]
 		[같은 카테고리의 글 보기: {% for category in categories -%}
 		{%- if not loop.first %}, {% endif -%}
-		<a href="{{ category }}.html">{{ category }}</a>
+		<a href="index.html#{{ category }}">{{ category }}</a>
 		{%- endfor %}]
 	</p>
 {% endblock %}
