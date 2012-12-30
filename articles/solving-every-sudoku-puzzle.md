@@ -6,6 +6,8 @@ date: 2011-08-20
 
 이 글은 [Peter Norvig](http://norvig.com/) 이 쓴 [Solving Every Sudoku Puzzle](http://norvig.com/sudoku.html) 을 번역한 것이다. 번역상의 오탈자는 [번역자](mailto:theyearlyprophet@gmail.com) 에게 신고 바란다.
 
+<!-- PREVIEW_END -->
+
 ---
 
 이 에세이는 모든 스도쿠 퍼즐을 풀 수 있는 프로그램을 작성하는 과정에 관한 것이다. 이런 프로그램을 작성하는 것은 사실 굉장히 쉽다. (중요한 코드는 [한 페이지](http://norvig.com/sudopy.html) 분량이며, 테스트와 기타 코드를 합해도 두 페이지에 불과하다) 이 프로그램은 두 가지의 큰 아이디어를 이용해 구현되었다. [제약 조건 전파](http://en.wikipedia.org/wiki/Constraint_satisfaction) 와 [탐색](http://en.wikipedia.org/wiki/Search_algorithm) 이 그것이다.

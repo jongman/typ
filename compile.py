@@ -47,6 +47,12 @@ def read_article(article_path):
     ret['categories'] = [s.strip() 
                          for s in ret.get('categories', '').split(',')]
     ret['body'] = f.read(1024*1024*1024)
+    preview = ret['body'].split('<!-- PREVIEW_END -->')[0]
+    if preview != ret['body']:
+        preview += """
+
+[[read more](%s%s)]""" % (URL, ret['html_name'])
+    ret['markdown_preview'] = markdown(preview)
     ret['markdown'] = markdown(ret['body'])
     
     return ret
@@ -84,7 +90,7 @@ def generate_rss(articles):
                items=[
                    RSSItem(title=article['title'],
                            link=URL + article['html_name'],
-                           description=article['markdown'],
+                           description=article['markdown_preview'],
                            guid=Guid(article['html_name']),
                            pubDate=to_datetime(article['date']))
                    for article in articles[:20]

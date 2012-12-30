@@ -12,6 +12,8 @@ categories: 개발
 
 그런 목적으로 등장한 언어가 있으니 바로 [커피스크립트](http://jashkenas.github.com/coffee-script/)다. 커피스크립트는 **자바스크립트로 컴파일되는** 스크립트 언어로써, 단순히 [syntactic sugar](http://en.wikipedia.org/wiki/Syntactic_sugar)라고 생각할 수도 있지만 다른 언어에 익숙한 개발자가 제정신을 유지하고 자바스크립트를 작성할 수 있도록 많은 기능들을 지원한다. [커피스크립트 홈페이지](http://jashkenas.github.com/coffee-script/)에 잘 설명되어 있지만, 우선 개인적으로 느끼기에 의미 있는 장점들을 우선 소개해 보겠다.
 
+<!-- PREVIEW_END -->
+
 ### 장점: == 대신 ===
 
 [이 글](http://blog.cheol.net/post/9208860498)에서도 언급했다시피 자바스크립트의 `==` 는 [Transitive Relation](http://en.wikipedia.org/wiki/Transitive_relation)이 아니다. `a == b`이고 `b == c`이더라도 `a == c`이지 않을 수 있다는 말이다. 제 정신을 가진 사람이라면 이런 연산자를 사용하고 싶지 않을 것이다..
