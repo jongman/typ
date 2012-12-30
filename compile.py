@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from os import path, walk
+from os import path, walk, symlink
 from markdown import markdown
 from codecs import open
 from datetime import datetime
@@ -7,8 +7,9 @@ from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 
 URL = 'http://theyearlyprophet.com/'
-HOME = path.dirname(__file__)
+HOME = path.abspath(path.dirname(__file__))
 ARTICLES_HOME = path.join(HOME, 'articles')
+ASSETS_HOME = path.join(HOME, 'assets')
 OUTPUT_HOME = path.join(HOME, 'output')
 TEMPLATES_HOME = path.join(HOME, 'templates')
 
@@ -119,6 +120,9 @@ def main():
     articles, attachments = scan_articles()
 
     process_articles(articles)
+    assets_output = path.join(OUTPUT_HOME, 'assets')
+    if not path.exists(assets_output):
+        symlink(ASSETS_HOME, assets_output)
     # copy_attachments(attachments)
 
 if __name__ == '__main__':
