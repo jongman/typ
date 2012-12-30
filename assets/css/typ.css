@@ -18,3 +18,8 @@ h2, h3, h4 {
 	margin-top: 16px;
 	margin-bottom: 8px;
 }
+
+img.feed_icon {
+	position: relative;
+	top: -6px;
+}

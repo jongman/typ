@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 from os import path, walk, symlink
 from markdown import markdown
-from codecs import open
 from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
+import codecs
 
 URL = 'http://theyearlyprophet.com/'
 HOME = path.abspath(path.dirname(__file__))
@@ -35,7 +35,7 @@ def read_article(article_path):
            'html_name': html_name,
            'dest': path.join(OUTPUT_HOME, html_name)}
 
-    f = open(article_path, encoding='utf-8')
+    f = codecs.open(article_path, encoding='utf-8')
     
     for line in f:
         line = line.strip()
@@ -52,25 +52,25 @@ def read_article(article_path):
 
 def process_article(article):
     template = jinja_env.get_template('article.html')
-    open(article['dest'], 'w', encoding='utf-8').write(template.render(**article))
+    codecs.open(article['dest'], 'w', encoding='utf-8').write(template.render(**article))
 
 def generate_category_index(category_name, articles):
     dest = path.join(OUTPUT_HOME, category_name + '.html')
     template = jinja_env.get_template('category.html')
     rendered = template.render(category_name=category_name, articles=articles)
-    open(dest, 'w', encoding='utf-8').write(rendered)
+    codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_chronological_index(articles):
     dest = path.join(OUTPUT_HOME, 'chronological.html')
     template = jinja_env.get_template('chronological.html')
     rendered = template.render(articles=articles)
-    open(dest, 'w', encoding='utf-8').write(rendered)
+    codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_front_page(categories, articles):
     dest = path.join(OUTPUT_HOME, 'index.html')
     template = jinja_env.get_template('index.html')
     rendered = template.render(categories=categories, articles=articles)
-    open(dest, 'w', encoding='utf-8').write(rendered)
+    codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_rss(articles):
     def to_datetime(ymd):
@@ -88,7 +88,7 @@ def generate_rss(articles):
                            pubDate=to_datetime(article['date']))
                    for article in articles[:20]
                ])
-    rss.write_xml(open(path.join(OUTPUT_HOME, 'rss.xml'), 'w', encoding='utf-8'))
+    rss.write_xml(open(path.join(OUTPUT_HOME, 'rss.xml'), 'w'))
 
 
 def generate_indices(articles):
