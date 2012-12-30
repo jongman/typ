@@ -1,4 +1,5 @@
-all:
+all: compile
+compile:
 	./compile.py
-deploy:
+deploy: compile
 	rsync -Lavh --progress -e ssh output/* jongman@jmk.pe.kr:www/typ 
