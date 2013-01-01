@@ -5,6 +5,7 @@ from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
+from shutils import copyfile
 import codecs
 
 URL = 'http://theyearlyprophet.com/'
@@ -130,6 +131,12 @@ def process_articles(article_paths):
 
     generate_indices(articles)
 
+def copy_attachments(attachments):
+    for attachment in attachments:
+        filename = path.basename(attachment)
+        dest = path.join(OUTPUT_HOME, filename)
+        copyfile(attachment, dest)
+
 def main():
     articles, attachments = scan_articles()
 
@@ -137,7 +144,7 @@ def main():
     assets_output = path.join(OUTPUT_HOME, 'assets')
     if not path.exists(assets_output):
         symlink(ASSETS_HOME, assets_output)
-    # copy_attachments(attachments)
+    copy_attachments(attachments)
 
 if __name__ == '__main__':
     main()
