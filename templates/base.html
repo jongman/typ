@@ -78,8 +78,14 @@
 				// https://github.com/mojombo/jekyll/issues/199
 				var all = MathJax.Hub.getAllJax(), i;
 				for(i = 0; i < all.length; i += 1) {
-					all[i].SourceElement().parentNode.className += ' has-jax';
-					all[i].SourceElement().parentNode.parentNode.className += ' has-jax';
+					var parent = all[i].SourceElement().parentNode;
+					if(parent.tagName == 'CODE' || parent.tagName == 'PRE') {
+						parent.className += ' has-jax';
+					}
+					var parent2 = parent.parentNode;
+					if(parent2.tagName == 'CODE' || parent2.tagName == 'PRE') {
+						parent2.className += ' has-jax';
+					}
 				}
 				
 				$('pre code').each(function(i, e) {
