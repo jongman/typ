@@ -10,6 +10,8 @@ categories: 기타
 
 주로 파이썬과 C++를 사용합니다.
 
+이 블로그는 [http://matt.might.net/articles/](http://matt.might.net/articles/)를 모델로 해 만들었습니다.
+
 ### 책 홍보
 
 지난 10여년동안 국내외의 많은 프로그래밍 대회에 참가해 왔습니다. 그 경험을 바탕으로 2012년 11월에 "[프로그래밍 대회에서 배우는 알고리즘 문제 해결](http://book.algospot.com)"이라는 책을 냈습니다. 많이 사주세요. 굽신 굽신.
