@@ -155,3 +155,7 @@ outlier의 존재와 serial/cluster effect의 존재 또한 \$t\$-test 의 가�
 * outlier가 있는 경우 Wilcoxon test등의 outlier에 강한 테스트를 쓴다.
 * Serial/cluster effect는 결국 confounding variable로 설명할 수 있다. 샘플 과정에서 우리가 모르는 바이어스가 있다거나, 시간에 따른 변화들이 없나 살핀다.
 * 샘플들의 분포 등을 확인하는 가장 좋은 길은 결국 직접 그려보는 것이다.
+
+## 샘플이 여러 개 있는 경우
+
+ANOVA는 다음 글에서 따로 다루겠다.
