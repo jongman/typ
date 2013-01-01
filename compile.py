@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 from os import path, walk, symlink
-from markdown import markdown
 from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
 from shutil import copyfile
+import markdown as md
 import codecs
 
 URL = 'http://theyearlyprophet.com/'
@@ -16,6 +16,9 @@ OUTPUT_HOME = path.join(HOME, 'output')
 TEMPLATES_HOME = path.join(HOME, 'templates')
 
 jinja_env = Environment(loader=FileSystemLoader(TEMPLATES_HOME))
+
+def markdown(text):
+    return md.markdown(text, extensions=['tables'])
 
 def is_article(file):
     return file.lower().endswith('.md')
