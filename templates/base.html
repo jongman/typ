@@ -31,8 +31,13 @@
     <div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span7 offset1 main">
+				<div class="well">
+					좋은 개발자가 되기 위해서는 문제 해결 능력이 필수적입니다. 제가 쓴 책 "<a href="http://book.algospot.com">프로그래밍 대회에서 배우는 알고리즘 문제 해결 전략</a>"에서는 다양한 문제 해결 기법과 예제들을 소개합니다.
+				</div>
 				{% block body %}
 				{% endblock %}
+			</div>
+			<div class="span2">
 			</div>
 		</div>
     </div> <!-- /container -->
@@ -88,6 +93,19 @@
     <!-- <script src="/assets/js/bootstrap-carousel.js"></script> -->
     <!-- <script src="/assets/js/bootstrap-typeahead.js"></script> -->
 
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-25310924-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		 })();
+
+	 </script>
   </body>
 </html>
 
