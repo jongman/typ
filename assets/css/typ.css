@@ -5,6 +5,17 @@ body {
 	margin-top: 16px;
 }
 
+body {
+	background-color: rgb(240, 240, 240);
+}
+
+div.main {
+	background-color: white;
+	border-radius: 16px;
+	border: 1px solid silver;
+	padding: 16px;
+}
+
 li {
 	line-height: 160%;
 }
