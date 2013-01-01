@@ -34,3 +34,7 @@ img.feed_icon {
 	position: relative;
 	top: -6px;
 }
+
+
+.has-jax {font: inherit; font-size: 100%; background: inherit; border: 0; color: #555;}
+
