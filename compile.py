@@ -57,26 +57,32 @@ def read_article(article_path):
     
     return ret
 
+def get_ctx(**kwargs):
+    kwargs['sorted'] = sorted
+    return kwargs
+
 def process_article(article):
     template = jinja_env.get_template('article.html')
-    codecs.open(article['dest'], 'w', encoding='utf-8').write(template.render(**article))
+    rendered = template.render(**get_ctx(**article))
+    codecs.open(article['dest'], 'w', encoding='utf-8').write(rendered)
 
 def generate_category_index(category_name, articles):
     dest = path.join(OUTPUT_HOME, category_name + '.html')
     template = jinja_env.get_template('category.html')
-    rendered = template.render(category_name=category_name, articles=articles)
+    rendered = template.render(**get_ctx(category_name=category_name, articles=articles))
     codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_chronological_index(articles):
     dest = path.join(OUTPUT_HOME, 'chronological.html')
     template = jinja_env.get_template('chronological.html')
-    rendered = template.render(articles=articles)
+    rendered = template.render(**get_ctx(articles=articles))
     codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_front_page(category_indexed, articles):
     dest = path.join(OUTPUT_HOME, 'index.html')
     template = jinja_env.get_template('index.html')
-    rendered = template.render(category_indexed=category_indexed, articles=articles)
+    rendered = template.render(**get_ctx(category_indexed=category_indexed,
+                                         articles=articles))
     codecs.open(dest, 'w', encoding='utf-8').write(rendered)
 
 def generate_rss(articles):

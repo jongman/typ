@@ -25,7 +25,7 @@
 	<hr/>
 	<h3>태그별로 보기</h3>
 
-	{% for category, category_articles in category_indexed.items() %}
+	{% for category, category_articles in sorted(category_indexed.items()) %}
 		<a id="{{ category }}"/></a>
 		<h4>{{ category }}</h4>
 		<ul>
