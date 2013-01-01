@@ -100,6 +100,7 @@ def generate_rss(articles):
 
 def generate_indices(articles):
     articles.sort(key=lambda a: a['date'])
+    articles = [article for article in articles if not article.get('hidden')]
     articles = list(reversed(articles))
 
     indexed = defaultdict(list)
