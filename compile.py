@@ -5,7 +5,7 @@ from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
-from shutils import copyfile
+from shutil import copyfile
 import codecs
 
 URL = 'http://theyearlyprophet.com/'
