@@ -26,7 +26,7 @@
 	<h3>태그별로 보기</h3>
 
 	{% for category, category_articles in category_indexed.items() %}
-		<a id="{{ category }}"/>
+		<a id="{{ category }}"/></a>
 		<h4>{{ category }}</h4>
 		<ul>
 			{% for article in category_articles %}
