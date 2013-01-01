@@ -44,7 +44,6 @@ categories: 메모, 통계
 
 scipy 패키지에 \$t\$ 분포의 구현이 있기 때문에 간단하게 구현할 수 있다. 
 
-	from pandas import read_csv
 	from math import sqrt
 	from scipy.stats import t
 
@@ -69,14 +68,8 @@ scipy 패키지에 \$t\$ 분포의 구현이 있기 때문에 간단하게 구�
 		# pop_mean = mean - t-stat * se
 		pop_mean = lambda t_stat: mean - t_stat * se
 
-		lo, hi = rv.ppf([0.025, 0.975])
+		hi, lo = rv.ppf([0.025, 0.975])
 		print '95%% confidence interval: %.4lf ~ %.4lf' % (pop_mean(lo), pop_mean(hi))
-
-결과는 이렇게 나온다.
-
-	t ratio (assuming mean is zero): 3.22892779
-	two-sided p value: 0.00606155
-	95% confidence interval: 0.3306 ~ 0.0667
 
 ## Two-sample \$t\$-test
 
@@ -133,7 +126,7 @@ Pooled sample standard deviation(\$s_p\$)으로부터 차이의 standard error �
 		# pop_mean = diff - t-stat * se
 		pop_mean = lambda t_stat: (mean1 - mean2) - t_stat * diff_se
 
-		lo, hi = rv.ppf([0.025, 0.975])
+		hi, lo = rv.ppf([0.025, 0.975])
 		print '95%% confidence interval: %.4lf ~ %.4lf' % (pop_mean(lo), pop_mean(hi))
 
 ## \$t\$-test 의 가정
