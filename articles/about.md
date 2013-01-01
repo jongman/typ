@@ -1,6 +1,7 @@
 title: 글쓴이 소개
 date: 2012-12-31
 categories: 기타
+hidden: true
 
 ### 구종만
 
