@@ -1,4 +1,4 @@
-categories: 구직
+categories: 구직, 알고리즘
 title: 알고리즘 인터뷰 가이드 1: 준비편
 date: 2011-10-07
 
