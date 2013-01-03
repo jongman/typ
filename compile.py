@@ -70,12 +70,6 @@ def process_article(article):
     rendered = template.render(**get_ctx(**article))
     codecs.open(article['dest'], 'w', encoding='utf-8').write(rendered)
 
-def generate_category_index(category_name, articles):
-    dest = path.join(OUTPUT_HOME, category_name + '.html')
-    template = jinja_env.get_template('category.html')
-    rendered = template.render(**get_ctx(category_name=category_name, articles=articles))
-    codecs.open(dest, 'w', encoding='utf-8').write(rendered)
-
 def generate_chronological_index(articles):
     dest = path.join(OUTPUT_HOME, 'chronological.html')
     template = jinja_env.get_template('chronological.html')
@@ -117,9 +111,6 @@ def generate_indices(articles):
     for article in articles: 
         for category in article['categories']:
             indexed[category].append(article)
-
-    for category, category_articles in indexed.items():
-        generate_category_index(category, category_articles)
 
     generate_chronological_index(articles)
     generate_front_page(indexed, articles)
