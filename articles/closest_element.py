@@ -41,8 +41,6 @@ def binary_search_np(A, B):
     # assume A and B are numpy arrays
     idx2 = np.minimum(len(A) - 1, np.searchsorted(A, B)) 
     idx1 = np.maximum(0, idx2 - 1)
-
-    # closest element to B[i] is either A[idx1[i]] or A[idx2[i]]
     idx2_is_better = np.abs(A[idx1] - B) > np.abs(A[idx2] - B)
     np.putmask(idx1, idx2_is_better, idx2)
     return A[idx1]
