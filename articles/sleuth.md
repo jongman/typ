@@ -25,6 +25,23 @@ hidden: true
 
 ### general
 
-* [Permutation test](http://en.wikipedia.org/wiki/Permutation_test#Permutation_tests): exact test. Null hypothesis가 참일 때 관찰값보다 extreme한 값이 나오는 경우의 수를 셈. Confidence interval을 줄 수 없음. 계산적으로 비쌈.
 
 ### linear regression
+
+### categorical data
+
+* categorical variable들을 사용하는 경우 관찰 결과는 frequency table로 주어진다.
+* explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion($p$) 혹은 odd($p/(1-p)$)가 과연 다른가? 를 검증. 
+* 특정할 수 없을 경우 테이블의 가로줄과 세로줄이 상호 독립인가? 를 검증.
+* 많은 경우 odd가 proportion보다 나은 기준이다. 그 중에서도 odd의 차이보다 비율(odds ratio)가 유의미할 수 있다. Odds ratio는 prospective와 retrospective study가 바뀌어도 유지된다.
+* log of odds ratio가 좀더 정규분포에 가까워 흔히 이용된다.
+* [Pearson's chi-squared test](http://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test) for goodness of fit: full model과 reduced model의 파워를 비교함.
+* [Permutation test](http://en.wikipedia.org/wiki/Permutation_test#Permutation_tests): Fisher's exact test. Null hypothesis가 참일 때 관찰값보다 extreme한 값이 나오는 경우의 수를 셈. Confidence interval을 줄 수 없음. 계산적으로 비쌈.
+* Mantel-Haenszel test: confounding factor 별로 나눠진 여러 개의 contingency table이 주어질때 이들의 결과를 합침.
+
+### logistic regression
+
+* [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): $logit(\pi)$ is a linear combination of explanatory variables.
+* Maximum Likelihood Estimate를 구한다. unbias외의 여러 좋은 점이 있음.
+* 각 coefficient에 대해 z-ratio를 구해 유의미성을 구할 수 있다.
+* [Deviance test](http://en.wikipedia.org/wiki/Deviance_(statistics)): Full model과 reduced model의 파워 차이를 구한다. likelihood의 차이는 대략 chi-squared distribution을 따름.
