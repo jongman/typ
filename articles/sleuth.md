@@ -9,26 +9,31 @@ hidden: true
 
 ----
 
-### paired data
+### T-tests for two sample data
 
-* [Paired difference t-test](http://en.wikipedia.org/wiki/Paired_difference_test): 통제 변인 외에 모든 요소가 같은 관찰값들이 주어졌을 때. 정규분포가 아닐 경우 [Wilcoxon signed-rank test](http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)도 사용 가능.
+* [Paired difference t-test](http://en.wikipedia.org/wiki/Paired_difference_test): 통제 변인 외에 모든 요소가 같은 관찰값들의 쌍이 주어졌을 때. 정규분포가 아닐 경우 [Wilcoxon signed-rank test](http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)도 사용 가능.
 * [Sign test](http://en.wikipedia.org/wiki/Sign_test): nonparametric이고 statistical power가 없지만 아주 간단함.
-
-### un-paired, two sample
-
 * [Independent two sample t-test](http://en.wikipedia.org/wiki/Student's_t-test#Independent_two-sample_t-test): 두 개의 모집단에서 상호독립으로 샘플을 draw 했을 때. 두 집단의 표준편차가 다를 경우 [Welch's t-test](http://en.wikipedia.org/wiki/Welch%27s_t_test)를 쓰자.
 * [Mann-Whitney Rank sum test](http://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U): 모집단 분포가 정규분포가 아닐때(outlier 가 있을 때) 유용.
 
 ### multiple samples
 
 * [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. full model과 reduced model의 파워를 비교함. 모든 샘플을 두 개의 서브셋으로 나눠서 이들이 같은가? 식으로도 쓸 수 있다.
-
-### general
-
+* For multivariate
 
 ### linear regression
 
-### categorical data
+### model checking / variable selection
+
+### working with time series
+
+### summarizing multivariate responses
+
+* PCA
+* CCA
+* DFA
+
+### working with categorical data
 
 * categorical variable들을 사용하는 경우 관찰 결과는 frequency table로 주어진다.
 * explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion($p$) 혹은 odd($p/(1-p)$)가 과연 다른가? 를 검증. 
@@ -43,5 +48,16 @@ hidden: true
 
 * [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): $logit(\pi)$ is a linear combination of explanatory variables.
 * Maximum Likelihood Estimate를 구한다. unbias외의 여러 좋은 점이 있음.
-* 각 coefficient에 대해 z-ratio를 구해 유의미성을 구할 수 있다.
-* [Deviance test](http://en.wikipedia.org/wiki/Deviance_(statistics)): Full model과 reduced model의 파워 차이를 구한다. likelihood의 차이는 대략 chi-squared distribution을 따름.
+* [Wald Test](http://en.wikipedia.org/wiki/Wald_test): 각 coefficient에 대해 z-ratio를 구해 각 explanatory variable의 유의미성을 구할 수 있다. 
+* [Deviance test](http://en.wikipedia.org/wiki/Deviance_(statistics)): Full model과 reduced model의 파워 차이를 구한다. likelihood의 차이는 대략 chi-squared distribution을 따름. Wald test보다 귀찮지만 더 reliable하다.
+
+#### logistic regression w/ repetitive observations
+
+* 각 explanatory variable마다 여러 개의 관찰값이 있는 경우 yes의 수 \$Y\$가 binomial(\$m\$, \$\pi\$)를 따르는 binomial count 모델로 모델링할 수도 있다.
+* model adequecy: 이때 각 explanatory variable의 조합을 repetitive sample로 생각하고, response variable의 평균을 구한 full 모델을 쓰자. 이 때 deviance residual은 대~충 chi-squared distribution을 따른다. 이 p-value가 작을 경우에는 model is inadequate.
+* extra-binomial variation: when \$\pi\$ differs for each response, or trials are not independent. We add "dispersion factor" \$\psi\$ to the variation. Fit richer model and compare deviance.
+
+#### logistic regression w/ poisson-distributed counts
+
+* log of count is linear function of explanatory variables, count following Poisson distribution.
+* As long as the distrubution of the response variable is specified, can estimate MLE.
