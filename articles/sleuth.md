@@ -19,9 +19,24 @@ hidden: true
 ### multiple samples
 
 * [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. full model과 reduced model의 파워를 비교함. 모든 샘플을 두 개의 서브셋으로 나눠서 이들이 같은가? 식으로도 쓸 수 있다.
-* For multivariate
 
 ### linear regression
+
+* slope와 intercept의 confidence interval/p-value를 이용해 변수간 관계 유추하는 데 씀.
+* [regression to the mean](http://en.wikipedia.org/wiki/Regression_toward_the_mean): "회귀regression"이라는 단어의 원인. 흔한 fallacy.
+* scatterplot of residual vs fitted value is sometimes more informative than response-explanatory plot.
+* ANOVA를 이용한 assessment (그냥 ANOVA는 sum of squares = between groups + within groups 하지만, 리그레션 ANOVA는 regression + residual로 나눔)
+* 여러 개의 explanatory variable 값에 replicated value가 있을 경우 lack of fit test를 할 수 있다. separate means vs linear regression. 물론 replicated value가 없으면 separate means가 의미가 없으므로 안되지.
+* \$R^2\$: the proportion of variance explained
+
+### strategy for data analysis
+
+1. preliminaries: define question. review study design.
+2. explore: use graphical tools, fit a tentative model, look for outliers
+3. formulate an inferential model
+4. check the model: if appropriate, fit a richer model. examine residuals, nonconstant variance. test if we can drop extra terms in the rich model.
+5. ??
+6. profit!
 
 ### model checking / variable selection
 
@@ -36,7 +51,7 @@ hidden: true
 ### working with categorical data
 
 * categorical variable들을 사용하는 경우 관찰 결과는 frequency table로 주어진다.
-* explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion($p$) 혹은 odd($p/(1-p)$)가 과연 다른가? 를 검증. 
+* explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion(\$p\$) 혹은 odd(\$p/(1-p)\$)가 과연 다른가? 를 검증. 
 * 특정할 수 없을 경우 테이블의 가로줄과 세로줄이 상호 독립인가? 를 검증.
 * 많은 경우 odd가 proportion보다 나은 기준이다. 그 중에서도 odd의 차이보다 비율(odds ratio)가 유의미할 수 있다. Odds ratio는 prospective와 retrospective study가 바뀌어도 유지된다.
 * log of odds ratio가 좀더 정규분포에 가까워 흔히 이용된다.
@@ -46,7 +61,7 @@ hidden: true
 
 ### logistic regression
 
-* [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): $logit(\pi)$ is a linear combination of explanatory variables.
+* [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): \$logit(\pi)\$ is a linear combination of explanatory variables.
 * Maximum Likelihood Estimate를 구한다. unbias외의 여러 좋은 점이 있음.
 * [Wald Test](http://en.wikipedia.org/wiki/Wald_test): 각 coefficient에 대해 z-ratio를 구해 각 explanatory variable의 유의미성을 구할 수 있다. 
 * [Deviance test](http://en.wikipedia.org/wiki/Deviance_(statistics)): Full model과 reduced model의 파워 차이를 구한다. likelihood의 차이는 대략 chi-squared distribution을 따름. Wald test보다 귀찮지만 더 reliable하다.
