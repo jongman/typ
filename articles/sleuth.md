@@ -19,6 +19,7 @@ hidden: true
 ### multiple samples
 
 * [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. full model과 reduced model의 파워를 비교함. 모든 샘플을 두 개의 서브셋으로 나눠서 이들이 같은가? 식으로도 쓸 수 있다.
+* [Two way ANOVA](http://en.wikipedia.org/wiki/Two-way_analysis_of_variance)
 
 ### linear regression
 
@@ -28,6 +29,24 @@ hidden: true
 * ANOVA를 이용한 assessment (그냥 ANOVA는 sum of squares = between groups + within groups 하지만, 리그레션 ANOVA는 regression + residual로 나눔)
 * 여러 개의 explanatory variable 값에 replicated value가 있을 경우 lack of fit test를 할 수 있다. separate means vs linear regression. 물론 replicated value가 없으면 separate means가 의미가 없으므로 안되지.
 * \$R^2\$: the proportion of variance explained
+* weighted regression: possible reasons
+	* responses are estimates; SD are available. SD가 작은 샘플에 높은 가중치를 줘야겠지.
+	* responses are avarages; sample size is available. 위와 같다.
+	* variance is proportional to X
+* **including additional variables can actually _decrease_ the precision of the result**. Adding variables to a simple linear regression changes the standard error of a coefficient in the following ways:
+	* The standard error can decrease when the multiple regression has a smaller RMSE
+	* The standard error will _increase_ when the additional variable is well explained by other variables (*multicollinearity*)
+* variable selection: forward selection, backward elimination, and stepwise regression.
+	* choosing two fits with different number of variables: [Cp Statistic](http://en.wikipedia.org/wiki/Mallows's_Cp), [BIC](http://en.wikipedia.org/wiki/Bayesian_information_criterion). [AIC](http://en.wikipedia.org/wiki/Akaike_information_criterion). BIC (approximately) maximizes the posterior probability.
+
+### model checking 
+
+* dealing with outliers: try fitting without them and see if results change.
+* multiple ways to find potential outliers: 
+	* [leverage](http://en.wikipedia.org/wiki/Leverage_(statistics)): standardized feature value
+	* [studentized residual](http://en.wikipedia.org/wiki/Studentized_residual)
+	* [Cook's distance](http://en.wikipedia.org/wiki/Cook's_distance)
+* partial residual plots: \$\mu(brain|body,gest) = \beta_{0} + \beta_{1}body + f(gest)\$일 때, \$f(gest)\$를 특정 형태로 (대개 linear 혹은 qudratic) 가정하고 리그레션을 돌린 후, \$brain - \beta_{0} - \beta_{1}body\$와 \$gest\$를 플롯.
 
 ### strategy for data analysis
 
@@ -38,9 +57,14 @@ hidden: true
 5. ??
 6. profit!
 
-### model checking / variable selection
-
 ### working with time series
+
+* serial correlation check
+	* subtract mean. count _runs_ of consecutive negative/positive values. Similar to [this](http://en.wikipedia.org/wiki/Wald%E2%80%93Wolfowitz_runs_test).
+	* correlation has normal distribution with mean=0 and std=\$1/\sqrt{n}\$.
+* [AR(1)](https://en.wikipedia.org/wiki/Autoregressive_model)
+	* estimation: subtract mean. (approximately) take correlation between adjacent values. 
+	* filtering: get rid of autoregressiveness. \$X_t = X_t - \alpha \cdot X_{t-1}\$
 
 ### summarizing multivariate responses
 
