@@ -1,7 +1,6 @@
 title: 메모: The Statistical Sleuth Cheat Sheet
 date: 2013-05-01
 categories: 메모, 통계
-hidden: true
 
 이 메모는 [이 책](http://www.proaxis.com/~panorama/home.htm)에 언급된 내용들에 대한 간략한 cheat sheet이다. 이 글은 남에게 보여주기 위해 쓴 것이 아니라 단지 개인적인 용도를 위해 정리한 것이고, 나는 통계학의 전문가와는 거리가 아주 멀기 때문에, 틀린 내용이 얼마든지 있을 수 있다. 틀린 점은 이메일이나 트위터로 알려주면 고맙겠다.
 
@@ -16,9 +15,11 @@ hidden: true
 * [Independent two sample t-test](http://en.wikipedia.org/wiki/Student's_t-test#Independent_two-sample_t-test): 두 개의 모집단에서 상호독립으로 샘플을 draw 했을 때. 두 집단의 표준편차가 다를 경우 [Welch's t-test](http://en.wikipedia.org/wiki/Welch%27s_t_test)를 쓰자.
 * [Mann-Whitney Rank sum test](http://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U): 모집단 분포가 정규분포가 아닐때(outlier 가 있을 때) 유용.
 
-### multiple samples
+### ANOVA
 
-* [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. full model과 reduced model의 파워를 비교함. 모든 샘플을 두 개의 서브셋으로 나눠서 이들이 같은가? 식으로도 쓸 수 있다.
+* 기본적으로 full model과 reduced model의 sum of squared error를 비교한다: [extra-sum-of-squares principle](http://www.jerrydallal.com/LHSP/extra.htm)
+* One-way [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. \$F = \frac{(extra-sum-of-squares) / (extra-degrees-of-freedom)}{\hat{\sigma}^{2}_{full}}\$ <!--_-->이때 이 식의 분자는 그룹간의 variance, 분모는 그룹 내의 variance라고도 할 수 있다.  
+* others-equal 모델: 그룹중 하나 찍어서 얘는 나머지랑 다르고, 나머지는 다 고만고만하다는 것을 보일 때.
 * [Two way ANOVA](http://en.wikipedia.org/wiki/Two-way_analysis_of_variance)
 
 ### linear regression
@@ -68,9 +69,9 @@ hidden: true
 
 ### summarizing multivariate responses
 
-* PCA
-* CCA
-* DFA
+* [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis): PCA is sensitive to scale, so standardize accordingly.
+* [Canonical Correlation Analysis](http://en.wikipedia.org/wiki/Canonical_correlation): 두 random variable의 집합 X와 Y가 있을 때, 각 집합의 원소들의 선형결합 두 개를 찾아 이들의 correlation을 최대화.
+* [Discrimnant Function Analysis](http://en.wikipedia.org/wiki/Discriminant_function_analysis): finds linear combinations of variables that best separates the data. (Basic clustering approach)
 
 ### working with categorical data
 
