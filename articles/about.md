@@ -4,7 +4,7 @@ categories: 기타
 
 ### 구종만
 
-시카고의 한 [high-frequency trading 회사](http://www.getcollc.com/)에서 퀀트 개발자로 <s>일</s>삽질하고 있습니다. 
+HFT(High Frequency Trading) 관련 일을 하는 퀀트 개발자입니다.
 
 프로그래밍 대회를 통한 프로그래밍 교육, 기계학습, 인공지능, 웹 애플리케이션 개발 등등에 관심이 있습니다.
 
