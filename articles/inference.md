@@ -23,12 +23,20 @@ hidden: 1
 ### 2. Transformations and Expectations
 
 * Section 2.1 covers functions of random variables and how to derive their cdf from the cdf of the original random variable.
-* The only way to do this seems to be for monotone functions, or at least piecewise monotone functions. (You should be able to partition \$\chi\$ (the domain of the original random variable) into contiguous sets where in each partition, the function is monotone.)
-* What if the function \$Y = g(X)\$ is monotone? 
-	* If it is monotonically increasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \le g^{-1}(y)) = F_X(g^{-1}(y))\$.
-	* If it is monotonically decreasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \ge g^{-1}(y)) = 1 - F_X(g^{-1}(y))\$.
-* Of course, you can differentiate these cdfs to get pdfs of the transformations. You don't have to expand the full equation and differentiate it; you can use chain rule to use \$f_X\$.
-* **Probabiliy integral transformation**: If \$X\$ has a cdf \$F_X\$, and we say \$Y = F_X(X)\$, then \$Y\$ is uniformly distributed on \$(0,1)\$.
-	* This can be understood intuitively -- let \$F_X(x) = y\$. Then \$P(Y \le y) = P(X \le x) = F_X(x) = y\$. This of course assumes monotonicity on \$F_X\$'s part, which is not always true, but this can be treated technically.
-
+	* The only way to do this seems to be for monotone functions, or at least piecewise monotone functions. (You should be able to partition \$\chi\$ (the domain of the original random variable) into contiguous sets where in each partition, the function is monotone.)
+	* What if the function \$Y = g(X)\$ is monotone? 
+		* If it is monotonically increasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \le g^{-1}(y)) = F_X(g^{-1}(y))\$.
+		* If it is monotonically decreasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \ge g^{-1}(y)) = 1 - F_X(g^{-1}(y))\$.
+	* Of course, you can differentiate these cdfs to get pdfs of the transformations. You don't have to expand the full equation and differentiate it; you can use chain rule to use \$f_X\$.
+	* **Probabiliy integral transformation**: If \$X\$ has a cdf \$F_X\$, and we say \$Y = F_X(X)\$, then \$Y\$ is uniformly distributed on \$(0,1)\$.
+		* This can be understood intuitively -- let \$F_X(x) = y\$. Then \$P(Y \le y) = P(X \le x) = F_X(x) = y\$. This of course assumes monotonicity on \$F_X\$'s part, which is not always true, but this can be treated technically.
+	* Section 2.2 talks about definition of expected values and their properties.
+	* Linearity of expectation follows from integration which is how EVs are defined. 
+	* When you are doing nonlinear transformation of expected values, you have two choices:
+		1. Calculate EVs directly from definition
+		2. Find pdf of \$y = g(x)\$ by transforming cdf of \$X\$ and differentiating; and then you can integrate regarding \$y\$.
+* Section 2.3 talks about moments and mgfs.
+	* Definitions
+		* The \$n\$th moment of \$X\$, \$\mu'_n\$ is defined by \$E(X^{n})\$.
+		* The \$n\$th central moment of \$X\$, \$\mu_n\$ is defined by \$E((X - \mu)^{n})\$.
 
