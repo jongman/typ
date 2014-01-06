@@ -27,9 +27,10 @@ hidden: 1
 	* What if the function \$Y = g(X)\$ is monotone? 
 		* If it is monotonically increasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \le g^{-1}(y)) = F_X(g^{-1}(y))\$.
 		* If it is monotonically decreasing, \$F_Y(y) = P(Y \le y) = P(g(x) \le y) = P(x \ge g^{-1}(y)) = 1 - F_X(g^{-1}(y))\$.
-	* Of course, you can differentiate these cdfs to get pdfs of the transformations. You don't have to expand the full equation and differentiate it; you can use chain rule to use \$f_X\$.
-	* **Probabiliy integral transformation**: If \$X\$ has a cdf \$F_X\$, and we say \$Y = F_X(X)\$, then \$Y\$ is uniformly distributed on \$(0,1)\$.
-		* This can be understood intuitively -- let \$F_X(x) = y\$. Then \$P(Y \le y) = P(X \le x) = F_X(x) = y\$. This of course assumes monotonicity on \$F_X\$'s part, which is not always true, but this can be treated technically.
+	* When you have pdf of original variable, you don't have to integrate and convert the CDF; instead you can derive the following relationship using chain rule. 
+		* \$f_Y(y) = f_X(g^{-1}(y)) \left | \frac{d}{dy}g^{-1}(y) \right |\$ 
+	* **Probability integral transformation**: If \$X\$ has a cdf \$F_X\$, and we say \$Y = F_X(X)\$, then \$Y\$ is uniformly distributed on \$(0,1)\$.
+		* This can be understood intuitively -- let \$F_X(x) = y\$. Then \$P(Y \le y) = P(X \le x) = F_X(x) = y\$. This of course assumes monotonicity (thus 1-to-1) on \$F_X\$'s part, which is not always true, but this can be treated technically.
 	* Section 2.2 talks about definition of expected values and their properties.
 	* Linearity of expectation follows from integration which is how EVs are defined. 
 	* When you are doing nonlinear transformation of expected values, you have two choices:
