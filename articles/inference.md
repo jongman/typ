@@ -39,4 +39,12 @@ hidden: 1
 	* Definitions
 		* The \$n\$th moment of \$X\$, \$\mu'_n\$ is defined by \$E(X^{n})\$.
 		* The \$n\$th central moment of \$X\$, \$\mu_n\$ is defined by \$E((X - \mu)^{n})\$.
+		* Moment generation function of random variable \$X\$ is defined as: \$M_X(t) = E(e^{tX}) = \int_x e^{tx} f_X(x) dx\$. 
+	* Variance is defined in terms of the second central moment.
+	* \$\mathrm{Var}(aX+b) = a^2 \mathrm{Var}(X) + b\$
+	* Moment generating functions can generate moments: \$\frac{d^{n}}{dt^{n}}M_X(0) = EX^{n}\$. This can be proven from the definition easily.
+	* All distribution can have an infinite number of moments. These can be used to uniquely identify distributions. In all cases, all the moments must exist. And either
+		a. Both random variables have bounded support
+		b. All mgfs exist and they agree in some neighborhood of 0
+	* A theorem regarding the convergence of mgfs (2.3.12) is introduced as an example application but I believe it hard to be practical?
 
