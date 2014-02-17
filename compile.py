@@ -5,6 +5,7 @@ from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
 from shutil import copyfile
+import sys
 import markdown as md
 import codecs
 
@@ -18,7 +19,7 @@ TEMPLATES_HOME = path.join(HOME, 'templates')
 jinja_env = Environment(loader=FileSystemLoader(TEMPLATES_HOME))
 
 def markdown(text):
-    return md.markdown(text, extensions=['tables'])
+    return md.markdown(text, extensions=['tables', 'toc'])
 
 def is_article(file):
     return file.lower().endswith('.md')
@@ -63,6 +64,7 @@ def read_article(article_path):
 
 def get_ctx(**kwargs):
     kwargs['sorted'] = sorted
+    kwargs['deploying'] = '--deploying' in sys.argv
     return kwargs
 
 def process_article(article):
