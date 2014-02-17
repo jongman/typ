@@ -18,7 +18,7 @@ categories: 강의노트, 통계
 ### ANOVA
 
 * 기본적으로 full model과 reduced model의 sum of squared error를 비교한다: [extra-sum-of-squares principle](http://www.jerrydallal.com/LHSP/extra.htm)
-* One-way [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. \$F = \frac{(extra-sum-of-squares) / (extra-degrees-of-freedom)}{\hat{\sigma}^{2}_{full}}\$ <!--_-->이때 이 식의 분자는 그룹간의 variance, 분모는 그룹 내의 variance라고도 할 수 있다.  
+* One-way [ANOVA](http://en.wikipedia.org/wiki/Analysis_of_variance): 모든 샘플의 평균이 같은가?를 검증. $F = \frac{(extra-sum-of-squares) / (extra-degrees-of-freedom)}{\hat{\sigma}^{2}_{full}}$ <!--_-->이때 이 식의 분자는 그룹간의 variance, 분모는 그룹 내의 variance라고도 할 수 있다.  
 * others-equal 모델: 그룹중 하나 찍어서 얘는 나머지랑 다르고, 나머지는 다 고만고만하다는 것을 보일 때.
 * [Two way ANOVA](http://en.wikipedia.org/wiki/Two-way_analysis_of_variance)
 
@@ -29,7 +29,7 @@ categories: 강의노트, 통계
 * scatterplot of residual vs fitted value is sometimes more informative than response-explanatory plot.
 * ANOVA를 이용한 assessment (그냥 ANOVA는 sum of squares = between groups + within groups 하지만, 리그레션 ANOVA는 regression + residual로 나눔)
 * 여러 개의 explanatory variable 값에 replicated value가 있을 경우 lack of fit test를 할 수 있다. separate means vs linear regression. 물론 replicated value가 없으면 separate means가 의미가 없으므로 안되지.
-* \$R^2\$: the proportion of variance explained
+* $R^2$: the proportion of variance explained
 * weighted regression: possible reasons
 	* responses are estimates; SD are available. SD가 작은 샘플에 높은 가중치를 줘야겠지.
 	* responses are avarages; sample size is available. 위와 같다.
@@ -47,7 +47,7 @@ categories: 강의노트, 통계
 	* [leverage](http://en.wikipedia.org/wiki/Leverage_(statistics)): standardized feature value
 	* [studentized residual](http://en.wikipedia.org/wiki/Studentized_residual)
 	* [Cook's distance](http://en.wikipedia.org/wiki/Cook's_distance)
-* partial residual plots: \$\mu(brain|body,gest) = \beta_{0} + \beta_{1}body + f(gest)\$일 때, \$f(gest)\$를 특정 형태로 (대개 linear 혹은 qudratic) 가정하고 리그레션을 돌린 후, \$brain - \beta_{0} - \beta_{1}body\$와 \$gest\$를 플롯.
+* partial residual plots: $\mu(brain|body,gest) = \beta_{0} + \beta_{1}body + f(gest)$일 때, $f(gest)$를 특정 형태로 (대개 linear 혹은 qudratic) 가정하고 리그레션을 돌린 후, $brain - \beta_{0} - \beta_{1}body$와 $gest$를 플롯.
 
 ### strategy for data analysis
 
@@ -62,10 +62,10 @@ categories: 강의노트, 통계
 
 * serial correlation check
 	* subtract mean. count _runs_ of consecutive negative/positive values. Similar to [this](http://en.wikipedia.org/wiki/Wald%E2%80%93Wolfowitz_runs_test).
-	* correlation has normal distribution with mean=0 and std=\$1/\sqrt{n}\$.
+	* correlation has normal distribution with mean=0 and std=$1/\sqrt{n}$.
 * [AR(1)](https://en.wikipedia.org/wiki/Autoregressive_model)
 	* estimation: subtract mean. (approximately) take correlation between adjacent values. 
-	* filtering: get rid of autoregressiveness. \$X_t = X_t - \alpha \cdot X_{t-1}\$
+	* filtering: get rid of autoregressiveness. $X_t = X_t - \alpha \cdot X_{t-1}$
 
 ### summarizing multivariate responses
 
@@ -76,7 +76,7 @@ categories: 강의노트, 통계
 ### working with categorical data
 
 * categorical variable들을 사용하는 경우 관찰 결과는 frequency table로 주어진다.
-* explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion(\$p\$) 혹은 odd(\$p/(1-p)\$)가 과연 다른가? 를 검증. 
+* explanatory와 response variable을 특정할 수 있을 경우, 각 모집단의 출현 proportion($p$) 혹은 odd($p/(1-p)$)가 과연 다른가? 를 검증. 
 * 특정할 수 없을 경우 테이블의 가로줄과 세로줄이 상호 독립인가? 를 검증.
 * 많은 경우 odd가 proportion보다 나은 기준이다. 그 중에서도 odd의 차이보다 비율(odds ratio)가 유의미할 수 있다. Odds ratio는 prospective와 retrospective study가 바뀌어도 유지된다.
 * log of odds ratio가 좀더 정규분포에 가까워 흔히 이용된다.
@@ -86,16 +86,16 @@ categories: 강의노트, 통계
 
 ### logistic regression
 
-* [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): \$logit(\pi)\$ is a linear combination of explanatory variables.
+* [GLM](http://en.wikipedia.org/wiki/Generalized_linear_model): $logit(\pi)$ is a linear combination of explanatory variables.
 * Maximum Likelihood Estimate를 구한다. unbias외의 여러 좋은 점이 있음.
 * [Wald Test](http://en.wikipedia.org/wiki/Wald_test): 각 coefficient에 대해 z-ratio를 구해 각 explanatory variable의 유의미성을 구할 수 있다. 
 * [Deviance test](http://en.wikipedia.org/wiki/Deviance_(statistics)): Full model과 reduced model의 파워 차이를 구한다. likelihood의 차이는 대략 chi-squared distribution을 따름. Wald test보다 귀찮지만 더 reliable하다.
 
 #### logistic regression w/ repetitive observations
 
-* 각 explanatory variable마다 여러 개의 관찰값이 있는 경우 yes의 수 \$Y\$가 binomial(\$m\$, \$\pi\$)를 따르는 binomial count 모델로 모델링할 수도 있다.
+* 각 explanatory variable마다 여러 개의 관찰값이 있는 경우 yes의 수 $Y$가 binomial($m$, $\pi$)를 따르는 binomial count 모델로 모델링할 수도 있다.
 * model adequecy: 이때 각 explanatory variable의 조합을 repetitive sample로 생각하고, response variable의 평균을 구한 full 모델을 쓰자. 이 때 deviance residual은 대~충 chi-squared distribution을 따른다. 이 p-value가 작을 경우에는 model is inadequate.
-* extra-binomial variation: when \$\pi\$ differs for each response, or trials are not independent. We add "dispersion factor" \$\psi\$ to the variation. Fit richer model and compare deviance.
+* extra-binomial variation: when $\pi$ differs for each response, or trials are not independent. We add "dispersion factor" $\psi$ to the variation. Fit richer model and compare deviance.
 
 #### logistic regression w/ poisson-distributed counts
 

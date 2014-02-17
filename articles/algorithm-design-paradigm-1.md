@@ -54,8 +54,8 @@ hidden: 1
 
 흔히 예로 드는 것이 [이항 계수](http://en.wikipedia.org/wiki/Binomial_coefficient)의 계산이다. 이항 계수는 다음과 같은 [점화식](http://en.wikipedia.org/wiki/Recurrence_relation) 으로 정의되는 값이다.
 
-* \$C(n,r) = C(n-1,r-1) + C(n-1,r)\$
-* \$C(n,n) = C(n,0) = 1\$
+* $C(n,r) = C(n-1,r-1) + C(n-1,r)$
+* $C(n,n) = C(n,0) = 1$
 
 이들을 삼각형으로 늘어놓으면 다음과 같이 위 두 수를 더한 꼴이 된다 해서, 이들을 [파스칼의 삼각형](http://en.wikipedia.org/wiki/Pascal's_triangle) 이라고도 부른다.
 
