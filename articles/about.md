@@ -22,3 +22,23 @@ HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입�
 * [github](http://github.com/jongman)
 * [twitter](http://twitter.com/jongman)
 * [linkedin](http://www.linkedin.com/in/jongman)
+
+### Talks
+
+다음은 개발자 모임이나 사내 세미나, 컨퍼런스 등에서 발표한 자료들입니다. 
+발표에 관심 있으시면 위 연락처로 연락 주세요.
+
+* 2014년 8월 파이콘 코리아 (예정)
+* [2014년 7월 LG전자 사내 세미나: Writing Correct Code](https://speakerdeck.com/jongman/writing-correct-code)
+* [2014년 7월 스쿱미디어 스타트업 세미나: 알고리즘 - 기술 사회의 연금술](https://speakerdeck.com/jongman/algorijeum-gisul-sahoeyi-yeongeumsul)
+* [2014년 대안언어축제 정기모임: 도메인 전문가와 일하기 관련 자료](http://github.com/jongman/altlang)
+* [2014년 전국 대학생 프로그래밍 대회 동아리 연합회 세미나: 외국인 노동자의 삶](https://speakerdeck.com/jongman/oegugin-falsedongjayi-salm)
+* [2014년 ICPC 결승 진출팀 캠프 수업자료: 수학 part 2](http://andromeda-express.com/wfcamp/#slide1)
+* [2014년 IOI 계절학교 강연](http://andromeda-express.com/ioi2014/)
+* [2011년 알고스팟 겨울캠프: 동적 계획법](https://speakerdeck.com/jongman/oegugin-falsedongjayi-salm) (with Being)
+
+위 주제 외의 다른 주제들에 관해서도 발표 가능합니다. 다음은 예제 주제들입니다:
+
+* 알고리즘 문제 해결 입문
+* 점진적으로 발전하기: 단순한 접근에서 복잡한 알고리즘까지
+* 알고리즘 문제 해결 과정 뜯어보기
