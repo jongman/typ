@@ -4,7 +4,7 @@ categories: 기타
 
 ### 구종만
 
-HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입니다. 지금은 일을 1년동안 쉬고 한국에 들어와 지내며 전업<s>백수</s>학생으로 혼자 공부를 하고 있습니다.
+HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입니다. 지금은 일을 1년동안 쉬고 한국에 들어와 지내고 있습니다.
 
 프로그래밍 대회를 통한 프로그래밍 교육, 기계학습, 인공지능, 웹 애플리케이션 개발 등등에 관심이 있습니다.
 
@@ -28,7 +28,7 @@ HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입�
 다음은 개발자 모임이나 사내 세미나, 컨퍼런스 등에서 발표한 자료들입니다. 
 발표에 관심 있으시면 위 연락처로 연락 주세요.
 
-* 2014년 8월 파이콘 코리아 (예정)
+* [2014년 8월 파이콘 코리아: 위대한 dict 이해하고 사용하기](https://speakerdeck.com/jongman/2014-pycon-kr-widaehan-dict-ihaehago-sayonghagi)
 * [2014년 7월 LG전자 사내 세미나: Writing Correct Code](https://speakerdeck.com/jongman/writing-correct-code)
 * [2014년 7월 스쿱미디어 스타트업 세미나: 알고리즘 - 기술 사회의 연금술](https://speakerdeck.com/jongman/algorijeum-gisul-sahoeyi-yeongeumsul)
 * [2014년 대안언어축제 정기모임: 도메인 전문가와 일하기 관련 자료](http://github.com/jongman/altlang)
