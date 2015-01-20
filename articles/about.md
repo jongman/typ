@@ -4,13 +4,11 @@ categories: 기타
 
 ### 구종만
 
-HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입니다. 지금은 일을 1년동안 쉬고 한국에 들어와 지내고 있습니다.
-
-프로그래밍 대회를 통한 프로그래밍 교육, 기계학습, 인공지능, 웹 애플리케이션 개발 등등에 관심이 있습니다.
-
-주로 파이썬과 C++를 사용합니다.
-
-이 블로그는 [http://matt.might.net/articles/](http://matt.might.net/articles/)를 모델로 해 만들었습니다.
+* 시카고의 HFT 회사에서 퀀트 개발자로 일하다가, 지금은 1년 휴식하면서 서울 곳곳의 코워킹 스페이스와 친구 사무실 그리고 스타벅스를 전전하고 있습니다. 14년 11월부터는 다시 뉴욕에서 일할 예정입니다. 
+* 2007년부터 [알고스팟](http://algospot.com/) 운영에 참여하고 있습니다.
+* 이 블로그는 [http://matt.might.net/articles/](http://matt.might.net/articles/)를 모델로 해 만들었습니다.
+* 로켓펀치 [인터뷰 1](http://rocketpun.ch/blog/2014/03/05/developer-interview16/), [인터뷰 2](http://rocketpun.ch/blog/2014/03/12/developer-interview17/)
+* 프로그래밍 대회를 통한 프로그래밍 교육, 기계학습, 인공지능, 웹 애플리케이션 개발 등등에 관심이 있습니다. 
 
 ### 책 홍보
 
@@ -28,7 +26,8 @@ HFT(High Frequency Trading) 관련 일을 하<s>는</s>던 퀀트 개발자입�
 다음은 개발자 모임이나 사내 세미나, 컨퍼런스 등에서 발표한 자료들입니다. 
 발표에 관심 있으시면 위 연락처로 연락 주세요.
 
-* [2014년 8월 파이콘 코리아: 위대한 dict 이해하고 사용하기](https://speakerdeck.com/jongman/2014-pycon-kr-widaehan-dict-ihaehago-sayonghagi)
+* 2014년 9월 넥슨 사내 세미나
+* [2014년 8월 파이콘 코리아: 위대한 dict 이해하고 사용하기](https://speakerdeck.com/jongman/2014-pycon-kr-widaehan-dict-ihaehago-sayonghagi), [동영상](http://www.youtube.com/watch?v=E4bF3tPxeDE)
 * [2014년 7월 LG전자 사내 세미나: Writing Correct Code](https://speakerdeck.com/jongman/writing-correct-code)
 * [2014년 7월 스쿱미디어 스타트업 세미나: 알고리즘 - 기술 사회의 연금술](https://speakerdeck.com/jongman/algorijeum-gisul-sahoeyi-yeongeumsul)
 * [2014년 대안언어축제 정기모임: 도메인 전문가와 일하기 관련 자료](http://github.com/jongman/altlang)

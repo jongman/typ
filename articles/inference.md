@@ -154,6 +154,10 @@ hidden: 1
 	* $EX = e^{\mu + (\sigma^2 / 2)}$
 	* $\mathrm{Var} X = e^{2(\mu+\sigma^2)} - e^{2\mu+\sigma^2}$
 * **Double exponential distribution**: formed by reflecting the exponential distribution around its mean.
+* **Chi-squared distribution**: a special form of gamma distribution.
+	* $\chi_p^2$ is a random variable with $p$ degrees of freedom.
+	* Square of a standard normal distribution follows a chi-squared distribution of 1 degrees of freedom.
+	* If we add multiple variables, each following a (possibly) different chi-squared distribution, the sum follows a chi-squared distribution with the degree of freedom equal to the sum of degrees of freedom from the summands.
 
 #### Exponential families of distributions
 
@@ -303,7 +307,75 @@ Inequalities on convex/concave functions are mentioned as well.
 	* Sample mean: $\bar{X} = \frac{1}{n}\sum_{i=1}^{n}X_i$
 	* Sample variance: $S^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i - \bar{X})^2$
 		* Why $n-1$ instead of $n$ in the denominator? This was chosen so that $ES^2 = \sigma^2$. If we were to use $n$\, $S^2$ would be a biased estimator of $sigma^2$. See below.
-		* Also, an interesting equality: $(n-1)s^2 = \sum_{o=1}^{n}x_i^2 - n\bar{x}^2$. I guess 
+		* Also, an interesting equality: $(n-1)s^2 = \sum_{o=1}^{n}x_i^2 - n\bar{x}^2$. I guess its a sample version of the equality $\mathrm{Var}X = EX^2 - (EX)^2$.
 * Factoids about the sampling distribution of these statistics:
 	* $E\bar{X} = \mu$: So the expected value of sample mean is the population mean. LLN will state that it will converge to the population mean as the sample size grows.
+	* $\mathrm{Var}\bar{X} = \frac{\sigma^2}{n}$: this follows from that the random variables are independent.
+	* $ES^2 = \sigma^2$: this is why $n-1$ comes into play. 
+* Examples of using mgfs to find sampling distributions are given. 
+	* We can substitute the definition of mgfs to find the mgf of the statistic. 
+	* In some cases, the new mgf might be in a familiar form which allows us to describe the sampling distribution with a known distribution.
+	* For example, this is how we show the mean of iid normal variables $X_i \sim \mathrm{n}(\mu, \sigma^2)$ follow $\mathrm{n}(\mu, \sigma^2/n)$.
 
+#### Sampling from the Normal Distribution
+
+* Sampling from the normal distribution gives us some more useful facts.
+	* $\bar{X}$ and $S^2$ are independent random variables.
+	* $\bar{X}$ has a $\mathrm{n}(\mu, \sigma^2/n)$ distribution
+	* $(n-1)S^2/\sigma^2$ has a chi-squared distribution with $n-1$ degrees of freedom.
+* Student's $t$ distribution
+	* We know $\frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \sim \mathrm{n}(0,1)$. 
+	* However, in most cases we don't know $\mu$ nor $\sigma$. If we want to make an inference about $\mu$, we need a placeholder for $\sigma$.
+	* We can substitute $S$, yielding $\frac{\bar{X}-\mu}{S/\sqrt{n}}$, which follows Student's $t$ distribution with $n-1$ degrees of freedom.
+	* The concrete distribution could be found using the independence between $\bar{X}$ and $S$, and the distribution of those two statistics.
+* $F$ distribution
+	* Say you are comparing variance between two random samples from two different normal distribution, one way to look at this is look at _variance ratio_.
+	* There are two variance ratios; one sample, one population. The ratio between these two ratios follow $F$ distribution. $\frac{S_X^2/S_Y^2}{\sigma_X^2\sigma_Y^2} = \frac{S_X^2/\sigma_X^2}{S_Y^2/\sigma_Y^2}$
+	* We can see that both the denominator and numerator in the second representation follow chi-square distributions; that is how $F$ distribution is derived.
+	* F distribution allows us to reason about the true variance ratio between the population variances.
+
+### Order Statistics
+
+* Order statistics of a random sample are the _sorted_ sample values.
+* The pmf/pdf of those can be derived from noticing that:
+	* Say we want to find the probability that $X_{(j)}$ ($j$th smallest number) is less than or equal to $x_i$.
+	* Each random variable now becomes a Bernoulli trial, with $F_X(x_i)$ probability of being less than or equal to $x_i)$. 
+	* So the cumulative functions can be derived from binomial distribution (for discrete vars), or something similar (for continuous)
+
+### Convergence Concepts
+
+* The main section of the chapter. Deals with how sampling distributions of some statistics change when we send the sample size to infinity.
+* Say we have a series of random variables $X_n$: denotes the statistic when we have $n$ samples. 
+* We deal with three kinds of convergence;
+	* Convergence in probability when $\lim_{n \to \infty}P(|X_n - X| \ge \epsilon) = 0$
+	* "Almost sure" convergence: when $P(\lim_{n \to \infty}|X_n - X| \ge \epsilon) = 0$ which is a much stronger convergence.
+	* Convergence in distribution: when their mgfs converge and they have the same distribution.
+* Law of large numbers
+	* Given a random sample $X_1, X_2, \cdots, X_n$ of size $n$, each with finite mean and (desirably, but optionally) variance:
+	* The sample mean converges _almost surely_ to $\mu$, the population mean. 
+* **Central Limit Theorem**
+
+When $X_1, X_2, \cdots$ is a sequence of iid random variables, with $EX_i = \mu$ and $\mathrm{Var}X_i = \sigma^2 > 0$. Then, 
+
+$$
+\lim_{n\to\infty}\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \sim \mathrm{n}(0, 1)
+$$ 
+
+<!--_-->
+
+* Therefore, $\bar{X}_n \sim \mathrm{n}(\mu, \frac{\sigma^2}{n})$. Woah.<!--_-->
+* Slutsky's Theorem: if $Y_n$ converges to a constant $a$ in probability, and $X_n$ converges to $X$ in distribution,
+	* $X_nY_n = aX$ in distribution.
+	* $X_n + Y_n = a + X$ in distribution.
+* Slutsky's theorem is used in proving that normal approximation with _estimated_ variance goes to standard normal as well. 
+	* To elaborate
+		* We know: $\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \to \mathrm{n}(0, 1)$
+		* The following also holds: $\frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n} \to \mathrm{n}(0,1)$
+	* Which is equivalent to: <span>$\bar{X}_n \sim \mathrm{n}(\mu, S_{n}^2/n)$</span> which is an awesome result.
+* Delta Method
+	* Delta method is a generalization of CLT where we can get distribution of $g(X_n)$ when $X_n$ converges to a normal distribution in distribution. 
+	* Yes, for any given $g$, $g(X_n)$ converges to a normal distribution with the mean at $g(\mu)$! Incredible.
+	* There are multiple forms, but I will only state the most basic one here.
+	* When $\sqrt{n}(Y_n - \theta) \to \mathrm{n}(0, \sigma^2)$ in distribution:
+		* \sqrt{n}[g(Y_n) - g(\theta)] \to \mathrm{n}(0, \sigma^2[g'(\theta)]^2)
+	* We are assuming $g'$ exists and is nonzero at $\theta$.
