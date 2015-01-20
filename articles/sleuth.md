@@ -1,6 +1,6 @@
-title: 강의노트: The Statistical Sleuth Cheat Sheet
+title: Writeup: The Statistical Sleuth 
 date: 2013-05-01
-categories: 강의노트, 통계
+categories: Writeup, 통계
 
 이 메모는 [이 책](http://www.proaxis.com/~panorama/home.htm)에 언급된 내용들에 대한 간략한 cheat sheet이다. 이 글은 남에게 보여주기 위해 쓴 것이 아니라 단지 개인적인 용도를 위해 정리한 것이고, 나는 통계학의 전문가와는 거리가 아주 멀기 때문에, 틀린 내용이 얼마든지 있을 수 있다. 틀린 점은 이메일이나 트위터로 알려주면 고맙겠다.
 
