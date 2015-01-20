@@ -4,11 +4,11 @@ categories: 기타
 
 ### 구종만
 
-* 시카고의 HFT 회사에서 퀀트 개발자로 일하다가, 지금은 1년 휴식하면서 서울 곳곳의 코워킹 스페이스와 친구 사무실 그리고 스타벅스를 전전하고 있습니다. 14년 11월부터는 다시 뉴욕에서 일할 예정입니다. 
+* 뉴욕의 [Two Sigma Investments](http://twosigma.com)에서 HFT 개발자로 일하고 있습니다. 
 * 2007년부터 [알고스팟](http://algospot.com/) 운영에 참여하고 있습니다.
 * 이 블로그는 [http://matt.might.net/articles/](http://matt.might.net/articles/)를 모델로 해 만들었습니다.
 * 로켓펀치 [인터뷰 1](http://rocketpun.ch/blog/2014/03/05/developer-interview16/), [인터뷰 2](http://rocketpun.ch/blog/2014/03/12/developer-interview17/)
-* 프로그래밍 대회를 통한 프로그래밍 교육, 기계학습, 인공지능, 웹 애플리케이션 개발 등등에 관심이 있습니다. 
+* 프로그래밍 대회를 통한 프로그래밍 교육, 기계학습 및 통계, 웹 애플리케이션 개발, 저지연(low latency) 애플리케이션 개발 등등에 관심이 있습니다. 
 
 ### 책 홍보
 
