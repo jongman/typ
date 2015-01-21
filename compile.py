@@ -4,10 +4,14 @@ from datetime import datetime
 from PyRSS2Gen import RSS2, RSSItem, Guid
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
-from shutil import copyfile
+from shutil import copyfile, copytree, rmtree
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import guess_lexer, get_lexer_by_name
 import sys
 import markdown as md
 import codecs
+import re
 
 URL = 'http://theyearlyprophet.com/'
 HOME = path.abspath(path.dirname(__file__))
@@ -18,7 +22,23 @@ TEMPLATES_HOME = path.join(HOME, 'templates')
 
 jinja_env = Environment(loader=FileSystemLoader(TEMPLATES_HOME))
 
+def apply_pygments(str):
+    lines = str.splitlines()
+    str = '\n'.join(lines[1:-1])
+    first = lines[0].strip().lstrip('`')
+    if first:
+        lexer = get_lexer_by_name(first)
+    else:
+        lexer = guess_lexer(str)
+    formatter = HtmlFormatter(style='colorful')
+    return highlight(str, lexer, formatter)
+
+def highlight_source_code(text):
+    return re.sub('^```.*?\n.+?^```$', lambda match: apply_pygments(match.group(0)),
+                  text, flags=re.DOTALL|re.MULTILINE)
+
 def markdown(text):
+    text = highlight_source_code(text)
     return md.markdown(text, extensions=['tables', 'toc'])
 
 def is_article(file):
@@ -138,8 +158,8 @@ def main():
 
     process_articles(articles)
     assets_output = path.join(OUTPUT_HOME, 'assets')
-    if not path.exists(assets_output):
-        symlink(ASSETS_HOME, assets_output)
+    rmtree(assets_output)
+    copytree('assets', assets_output)
     copy_attachments(attachments)
 
 if __name__ == '__main__':

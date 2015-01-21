@@ -231,7 +231,7 @@ void update(int u, int v, int cost) {
 // u에서 v로 내려가는 경로 중 최대값을 반환한다.
 int query_topdown(int u, int v) {
   // u와 v가 같다면 경로에는 아무 간선도 포함되어 있지 않다.
-  if(u == v) return -1;
+  if(u == v) return 0;
 
   // 만약 u와 v가 같은 무거운 경로에 속한다면 구간 트리로 해결 가능
   if(heavy_path_index[u] == heavy_path_index[v]) {
@@ -262,6 +262,8 @@ int query(int u, int v) {
 }
 
 int main() {
+  cin.sync_with_stdio(false);
+
   int cases;
   cin >> cases;
   while(cases--) {
@@ -276,6 +278,8 @@ int main() {
 
     int queries;
     cin >> queries;
+
+    int ret = 0;
     while(queries--) {
       string op;
       cin >> op;
@@ -287,8 +291,9 @@ int main() {
       else {
         int u, v;
         cin >> u >> v;
-        cout << query(u, v) << endl;
+        ret ^= query(u, v);
       }
     }
+    cout << ret << endl;
   }
 }

@@ -1,12 +1,15 @@
+OPT=-O3
 all: hld simple lib
+clean: 
+	rm -f hld simple lib
 
-hld:
-	g++ --std=c++11 -g hld.cpp -o hld
+hld: hld.cpp
+	g++ --std=c++11 $(OPT) hld.cpp -o hld
 
-simple:
-	g++ --std=c++11 -g simple.cpp -o simple
+simple: simple.cpp
+	g++ --std=c++11 $(OPT) simple.cpp -o simple
 
-lib:
-	g++ --std=c++11 -g lib.cpp -o lib
+lib: lib.cpp
+	g++ --std=c++11 $(OPT) lib.cpp -o lib
 
 

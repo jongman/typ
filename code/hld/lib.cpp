@@ -15,8 +15,6 @@
 #include<functional>
 using namespace std;
 
-const int MAXN = 5000;
-
 // Segment tree for point update/range query. Elements of array and results are
 // supposed to be the same type. (Can be used for range min, range max, range
 // sum, ..)
@@ -277,6 +275,7 @@ int query(int u, int v) {
 
 int main() {
   int cases;
+  cin.sync_with_stdio(false);
   cin >> cases;
   while(cases--) {
     tree = read_input();
@@ -289,6 +288,7 @@ int main() {
 
     int queries;
     cin >> queries;
+    int ret = 0;
     while(queries--) {
       string op;
       cin >> op;
@@ -300,9 +300,10 @@ int main() {
       else {
         int u, v;
         cin >> u >> v;
-        cout << query(u, v) << endl;
+        ret ^= query(u, v);
       }
     }
+    cout << ret << endl;
 
     delete tree;
   }

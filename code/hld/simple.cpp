@@ -14,7 +14,7 @@
 #include<vector>
 using namespace std;
 
-const int MAXN = 5000;
+const int MAXN = 50000;
 
 int n; // 정점의 개수
 int parent[MAXN]; // 부모 정점의 번호. 루트라면 -1
@@ -91,6 +91,7 @@ struct SegmentTree {
 };
 
 int main() {
+  cin.sync_with_stdio(false);
   int cases;
   cin >> cases;
   while(cases--) {
@@ -99,6 +100,7 @@ int main() {
     for(int i = 0; i < n; ++i) weight[i] = 1;
     int queries;
     cin >> queries;
+    int ret = 0;
     while(queries--) {
       string op;
       cin >> op;
@@ -110,9 +112,10 @@ int main() {
       else {
         int u, v;
         cin >> u >> v;
-        cout << query(u, v) << endl;
+        ret ^= query(u, v);
       }
     }
+    cout << ret << endl;
   }
 }
 
